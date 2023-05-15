@@ -8,6 +8,6 @@ RUN chgrp -R 0 /app && \
 COPY ["./epicpinball/package.json", "./epicpinball/_site", "./"]
 RUN microdnf update -y && microdnf install npm -y && microdnf clean all
 RUN npm install && npm audit fix --force && npm cache clean --force 
-EXPOSE 8080
+EXPOSE 8081
 ENV npm_config_cache="/app"
 CMD [ "npm", "run", "start", "--loglevel=verbose" ]
